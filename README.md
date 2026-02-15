@@ -90,6 +90,11 @@ Authentication is managed by **Auth0**. Access tokens and user info for security
 - File can only be viewed by another user if the file is active / if the view count < max_view count.
 - For file naming convention, text is saved as paste.txt in DB, while the pdf files have their original name.
 
+## Limitations
+
+- All the routes are public (major security flaw).
+- Only pdf files can be uploaded right now. Support can be extended for word, excel etc.
+
 ## Components Responsibilities (short)
 
 - `Header.jsx`: branding, top-level navigation, global actions.
