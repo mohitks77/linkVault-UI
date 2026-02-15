@@ -1,4 +1,4 @@
-# pastebin-UI
+# linkVault-UI
 
 This repo contains the code for the UI part of pastebin like application. This application supports file (.pdf) and text sharing with multiple possible parameters (passwords, max views, download limits etc).
 
