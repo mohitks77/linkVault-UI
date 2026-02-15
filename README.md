@@ -124,15 +124,3 @@ Authentication is managed by **Auth0**. Access tokens and user info for security
 
 - Fork, branch, open PRs, and run the dev server locally.
 - Follow the existing component patterns (small, focused components; provider usage for cross-cutting concerns like toasts).
-
-## Files To Inspect First
-
-- `src/main.jsx`, `src/App.jsx`, and `src/components/Files/Files.jsx` — to understand app bootstrapping and the primary user flow.
-
----
-
-If you'd like, I can also:
-
-- generate a component map diagram,
-- extract and document API endpoints expected by the UI,
-- or produce a short contributor guide with PR checklist.
