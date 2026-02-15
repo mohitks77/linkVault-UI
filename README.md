@@ -85,6 +85,7 @@ Authentication is managed by **Auth0**. Access tokens and user info for security
 
 ## Design Decisions
 
+- User has to create an account for uploding / sharing files.
 - A file once uploaded can only be deleted by the user who uploaded it.
 - File can only be viewed by another user if the file is active / if the view count < max_view count.
 - For file naming convention, text is saved as paste.txt in DB, while the pdf files have their original name.
