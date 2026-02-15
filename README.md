@@ -1,6 +1,6 @@
 # pastebin-UI
 
-This repository contains the frontend for a Pastebin-like application — a lightweight UI built with Vite and React. This README explains the architecture topic-by-topic so contributors and maintainers can quickly understand how the app is organized.
+This repo contains the code for the UI part of pastebin like application. This application supports file (.pdf) and text sharing with multiple possible parameters (passwords, max views, download limits etc).
 
 ## Project Overview
 
@@ -11,7 +11,8 @@ This repository contains the frontend for a Pastebin-like application — a ligh
 
 - React (functional components, hooks)
 - Vite (dev server + build)
-- Plain CSS for global styles (`src/index.css`)
+- Plain CSS for global styles (`src/index.css`), but most of the styles are managed inline using MUI.
+- Auth0 for authentication and user management.
 
 ## Quick Start
 
