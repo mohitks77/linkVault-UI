@@ -1,0 +1,65 @@
+flowchart LR
+  %% Top actors
+  User["User (browser)"]
+  Browser["Browser / pastebin-UI"]
+
+  User -->|interacts| Browser
+  
+  subgraph UI ["Front-end (pastebin-UI)"]
+    direction TB
+    App["App.jsx (Router / Layout)"]
+    Header["Header.jsx"]
+    Upload["Upload (Upload.jsx / UploadBox)"]
+    FilesComp["Files (Files.jsx / FileTable)"]
+    ViewDoc["ViewDoc (PasteView / PDFViewer / TextViewer)"]
+    Toasts["ToastProvider / Toasts"]
+
+    App --> Header
+    App --> Upload
+    App --> FilesComp
+    App --> ViewDoc
+    App --> Toasts
+
+    Upload -->|POST /api/pastes| API
+    FilesComp -->|GET /api/pastes/user/:userId| API
+    FilesComp -->|DELETE /api/pastes/:slug| API
+    FilesComp -->|GET /api/pastes/:slug/preview| API
+    ViewDoc -->|GET /api/pastes/:slug?password=| API
+    ViewDoc -->|GET /api/pastes/:slug/download| API
+  end
+
+  subgraph Backend ["Backend (pastebin-backend - Express)"]
+    direction TB
+    API["Express API (/api)"]
+    Routes["Routes (paste.routes.js, user.routes.js)"]
+    Multer["Multer (memory storage)"]
+    Controllers["Controllers (paste.controller.js)"]
+    Middleware["Logger & Error Middleware"]
+
+    API --> Routes
+    Routes --> Multer
+    Multer --> Controllers
+    Routes --> Controllers
+    API --> Middleware
+
+    Controllers -->|calls Supabase client| Supabase["Supabase SDK"]
+    Controllers -->|builds responses| Browser
+  end
+
+  subgraph Storage ["Supabase"]
+    direction TB
+    SStorage["Storage bucket: pastes"]
+    SDB["Postgres: tables (pastes, users)"]
+
+    Supabase --> SStorage
+    Supabase --> SDB
+  end
+
+  %% External links
+  Browser -->|fetch API| API
+
+  %% Style
+  classDef important fill:#f9f,stroke:#333,stroke-width:1px;
+  Controllers:::important
+  SStorage:::important
+  SDB:::important
