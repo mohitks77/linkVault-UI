@@ -1,0 +1,10 @@
+body {
+  margin: 0;
+}
+
+:root {
+  --header: #d3cde9;
+  --bgcolor: rgb(26, 44, 56);
+  --borderColor: #b8b2cc;
+  --bgcolor2: rgb(33, 53, 71);
+}
