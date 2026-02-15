@@ -83,6 +83,12 @@ All UI code lives under `src/` and is split into logical folders:
 
 Authentication is managed by **Auth0**. Access tokens and user info for security purpose is managed in localstorage instead of cookies for security purpose.
 
+## Design Decisions
+
+- A file once uploaded can only be deleted by the user who uploaded it.
+- File can only be viewed by another user if the file is active / if the view count < max_view count.
+- For file naming convention, text is saved as paste.txt in DB, while the pdf files have their original name.
+
 ## Components Responsibilities (short)
 
 - `Header.jsx`: branding, top-level navigation, global actions.
